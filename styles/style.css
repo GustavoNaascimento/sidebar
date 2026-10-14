@@ -5,16 +5,28 @@
 :root {
     --cor-primaria: #0b57d0;
     --cor-fundo: #ffffff;
-    --cor-letra: rgba(0, 0, 0, 0.747);
+    --main: #e4e4e4;
+    --cor-letra: #000000be;
     --cor-letra-invertida: white;
+    --hover: #0b57d025;
+    --icones: #000000c9;
 }
-
+.dark {
+    --cor-primaria: #655dfe;
+    --cor-fundo: #1a222f;
+    --main: #212935d5;
+    --cor-letra: #f1f1ff;
+    --hover: #3e485a;
+    --icones: #f1f1ff;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-letra);
     height: 100dvh;
     font-family: "Poppins", sans-serif;
     display: flex;
@@ -40,6 +52,7 @@ div#user {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-top: 8px;
     margin-bottom: 25px;
     font-size: 15px;
 }
@@ -55,6 +68,36 @@ div#user img {
     object-fit: cover;
     border: 2px solid transparent;
     outline: 2px solid var(--cor-primaria);
+} /*botão de ligth e dark mode */
+#mode-btn {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+#cont-mode {
+    position: relative; 
+    background-color: var(--hover);
+    width: 40px;
+    height: 23px;
+    border: 1px solid var(--cor-letra);
+    border-radius: 150px;
+}
+.botao-mode {
+    position: absolute;
+    left: 0px;
+    width: 21px;
+    height: 21px;
+    background-color: var(--cor-letra);
+    border-radius: 50%;
+    transform: scale(0.9);
+    transition: all 0.3s;
+}
+.botao-mode.on {
+    position: absolute;
+    left: 17px;
+/*Fim do dark e light mode*/
 }
 #navebar-cont {
     border-radius: 8px;
@@ -77,7 +120,10 @@ li {
     border-radius: 8px;
 }
 #navebar-cont li:hover:not(.active) {
-    background-color: #0b57d025;
+    background-color: var(--hover);
+}
+i {
+    color: var(--icones);
 }
 .item-descripition {
     color: var(--cor-letra);
@@ -126,7 +172,7 @@ li {
     top: 30px;
     background-color: var(--cor-primaria);
     color: var(--cor-letra-invertida);
-    right: -13px;
+    right: -18px;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -135,6 +181,7 @@ li {
     transition: transform 0.5s ease-in-out;
 }
 #btn-open i {
+    color: white;
     font-size: 20px;
 }
 #btn-out {
@@ -165,7 +212,8 @@ li {
     width: 60px; /* ajuste conforme o tamanho do texto "Log out" */
 }
 main {
-    background-color: rgb(228, 228, 228);
+    background-color: var(--main);
+    color: var(--cor-letra);
     width: 100%;
     padding: 10px;
 }
